@@ -21,8 +21,8 @@ class Vendas extends Controller
                 'id' => $venda->vendedor_id
             ]);
 
-            $valorVenda = number_format($venda->valor_venda, 2);
-            $comissao = number_format($venda->comissao, 2);
+            $valorVenda = number_format($venda->valor_venda, 2, ',', '.');
+            $comissao = number_format($venda->comissao, 2, ',', '.');
 
             $html .= "<h4><b>Vendedor:</b> {$vendedor->nome}</h4>";
             $html .= "<h5><b>Email:</b> R$ {$vendedor->email}</h5>";
@@ -50,10 +50,13 @@ class Vendas extends Controller
             'id' => $vendedorId
         ]);
 
+        $totalVenda = 0;
+        $totalComissao = 0;
+
         foreach ($vendas as $venda) {
 
-            $valorVenda = number_format($venda->valor_venda, 2);
-            $comissao = number_format($venda->comissao, 2);
+            $valorVenda = number_format($venda->valor_venda, 2, ',', '.');
+            $comissao = number_format($venda->comissao, 2, ',', '.');
 
             $html .= "<h5><b>Valor da Venda:</b> R$ {$valorVenda}</h5>";
             $html .= "<h5><b>Comissão:</b> R$ {$comissao}</h5>";
@@ -61,9 +64,17 @@ class Vendas extends Controller
             $html .= "<small>Criado em: <b>{$venda->created_at}</b> - Editado em: <b>{$venda->updated_at}</b> </small>";
 
             $html .= "<hr />";
+
+            $totalVenda = $totalVenda + $venda->valor_venda;
+            $totalComissao = $totalComissao + $venda->comissao;
         }
 
-        return view('vendas-vendedor', ['vendas' => $html, 'vendedor' => $vendedor->nome]);
+        return view('vendas-vendedor', [
+            'vendas' => $html,
+            'vendedor' => $vendedor->nome,
+            'totalVendas' => number_format($venda->valor_venda, 2, ',', '.'),
+            'totalComissao' => number_format($venda->comissao, 2, ',', '.')
+        ]);
     }
 
     public function formVenda($vendedorId)

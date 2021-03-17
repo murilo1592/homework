@@ -14,9 +14,16 @@
 <div class="container my-5">
 
     <h2>Vendedor &raquo; <?php echo $vendedor; ?></h2>
+
     <h5>Minhas Vendas</h5>
 
-    <hr />
+    <small>
+        <b>Total Vendas:</b> <?php echo $totalVendas;?>
+        &raquo;
+        <b>Total Comissão:</b> <?php echo $totalComissao;?>
+    </small>
+
+    <hr/>
 
     <a href="{{ url('/vendedores')  }}" class="btn btn-primary">Listar Vendedores</a>
 
