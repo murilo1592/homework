@@ -20,6 +20,7 @@ class CreateVendas extends Migration
                 ->on('vendedores')
                 ->onDelete('cascade');
             $table->float('valor_venda');
+            $table->float('comissao');
             $table->timestamps();
         });
     }
