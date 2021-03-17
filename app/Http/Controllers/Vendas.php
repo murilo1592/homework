@@ -31,11 +31,44 @@ class Vendas extends Controller
 
             $html .= "<small>Criado em: <b>{$venda->created_at}</b> - Editado em: <b>{$venda->updated_at}</b> </small>";
 
+            $html .= "<a href=" . url('/vendedor/' . $venda->vendedor_id . '/criar-venda') . " class='btn btn-sm btn-primary' style=' margin-left:8px; color:white;'>Lançar nova venda</a>";
+
 
             $html .= "<hr />";
         }
 
         return view('vendas', ['vendas' => $html]);
+    }
+
+    public function vendasVendedor($vendedorId)
+    {
+        $vendas = Venda::where('vendedor_id', '=', $vendedorId)->get();
+
+        $html = "";
+
+        $vendedor = Vendedor::firstOrNew([
+            'id' => $vendedorId
+        ]);
+
+        foreach ($vendas as $venda) {
+
+            $valorVenda = number_format($venda->valor_venda, 2);
+            $comissao = number_format($venda->comissao, 2);
+
+            $html .= "<h5><b>Valor da Venda:</b> R$ {$valorVenda}</h5>";
+            $html .= "<h5><b>Comissão:</b> R$ {$comissao}</h5>";
+
+            $html .= "<small>Criado em: <b>{$venda->created_at}</b> - Editado em: <b>{$venda->updated_at}</b> </small>";
+
+            $html .= "<hr />";
+        }
+
+        return view('vendas-vendedor', ['vendas' => $html, 'vendedor' => $vendedor->nome]);
+    }
+
+    public function formVenda($vendedorId)
+    {
+        return view('form-venda', ['vendedorId' => $vendedorId]);
     }
 
     public function list()

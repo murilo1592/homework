@@ -17,6 +17,10 @@
 
     <hr />
 
+    <a href="{{ url('/form-vendedor')  }}" class="btn btn-primary">Criar Vendedor</a>
+
+    <a href="{{ url('/vendas')  }}" class="btn btn-success">Listar Vendas</a>
+
     <section class="articles_list mt-5">
 
         <article class="mb-5">
@@ -25,8 +29,6 @@
         </article>
 
     </section>
-
-    <a href="{{ url('/form-vendedor')  }}" class="btn btn-primary">Criar Vendedor</a>
 
     <script src="{{ asset('js/app.js') }}"></script>
 </body>

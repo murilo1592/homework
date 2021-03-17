@@ -17,11 +17,16 @@ class Vendedores extends Controller
 
         foreach ($vendedores as $vendedor) {
 
+            $dataCriacao = date('Y-m-d H:i', strtotime($vendedor->created_at));
+            $dataAtualizacao = date('Y-m-d H:i', strtotime($vendedor->updated_at));
+
             $html .= "<h3><b>Vendedor:</b> {$vendedor->nome}</h3>";
             $html .= "<h5><b>Email:</b> {$vendedor->email}</h5>";
-            $html .= "<small>Criado em: <b>{$vendedor->created_at}</b> - Editado em: <b>{$vendedor->updated_at}</b> </small>";
+            $html .= "<small>Criado em: <b>{$dataCriacao}</b> - Editado em: <b>{$dataAtualizacao}</b> </small>";
 
             $html .= "<a href=" . url('/vendedor/' .$vendedor->id. '/criar-venda') . " class='btn btn-sm btn-success' style=' margin-left:8px; color:white;'>Lançar nova venda</a>";
+            $html .= "<a href=" . url('vendas-vendedor/' . $vendedor->id) . " class='btn btn-sm btn-primary' style=' margin-left:8px; color:white;'>Listar Vendas</a>";
+
 
             $html .= "<hr />";
         }

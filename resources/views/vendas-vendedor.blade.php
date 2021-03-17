@@ -13,7 +13,8 @@
 
 <div class="container my-5">
 
-    <h1>Lista de Vendas</h1>
+    <h2>Vendedor &raquo; <?php echo $vendedor; ?></h2>
+    <h5>Minhas Vendas</h5>
 
     <hr />
 
