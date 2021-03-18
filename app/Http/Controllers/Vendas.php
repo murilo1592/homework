@@ -123,7 +123,9 @@ class Vendas extends Controller
 
         unset($venda);
 
-        $venda = Venda::lastOrNew();
+        $venda = Venda::firstOrNew([
+            'vendedor' => $vendedorId
+        ]);
 
         die(json_encode([
             'id' => $venda->id,
