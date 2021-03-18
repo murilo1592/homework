@@ -1,16 +1,16 @@
-<img src="https://www.coderslab.com.bd/wp-content/uploads/2021/01/laravel.png">
+<img src="https://e7.pngegg.com/pngimages/719/649/png-clipart-laravel-software-framework-php-web-framework-model-view-controller-framework-angle-text-thumbnail.png">
 
-##Teste Homework-PHP
+<h1>##Teste Homework-PHP</h1>
 
-##Passo a Passo
+<h2>##Passo a Passo</h2>
 
-1° Baixe o projeto em sua máquina.
+<p>1° Baixe o projeto em sua máquina.</p>
 
-2° Crie uma base de dados chamada 'homework' <br />
-Obs: SGBD (PostgresSQL)
+<p>2° Crie uma base de dados chamada 'homework'</p>
+<p>Obs: SGBD (PostgresSQL)</p>
 
-3° Em seu terminal na raíz do projeto rode o comando: 
+<p>3° Em seu terminal na raíz do projeto rode o comando: </p>
 
-php artisan migrate
+<p>php artisan migrate</p>
 
-4° Abra o projeto em seu navegador !
+<p>4° Abra o projeto em seu navegador !</p>
