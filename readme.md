@@ -1,4 +1,4 @@
-<img src="https://e7.pngegg.com/pngimages/719/649/png-clipart-laravel-software-framework-php-web-framework-model-view-controller-framework-angle-text-thumbnail.png">
+<img src="https://img1.gratispng.com/20180805/lcp/kisspng-website-development-laravel-software-developer-app-laravel-logo-software-logo-5b6700bb227cc3.8348655615334770511413.jpg">
 
 <h1>##Teste Homework-PHP</h1>
 
